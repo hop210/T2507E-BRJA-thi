@@ -2,12 +2,15 @@
 import dao.PlayerDao;
 import dao.PlayerDaoImpl;
 import entity.Player;
+import dao.NationalDao;
+import dao.NationalDaoImpl;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        NationalDao nationalDao = new NationalDaoImpl();
         Scanner sc = new Scanner(System.in);
         PlayerDao dao = new PlayerDaoImpl();
 
@@ -24,7 +27,7 @@ public class Main {
             System.out.print("Choose: ");
 
             int choice = sc.nextInt();
-            sc.nextLine(); // clear buffer
+            sc.nextLine();
 
             switch (choice) {
                 case 1:
@@ -97,6 +100,27 @@ public class Main {
                                 pl.getHighScore() + " | " +
                                 pl.getLevel() + " | " +
                                 pl.getNationalName());
+                    }
+                    break;
+                case 6:
+                    System.out.print("Enter National name: ");
+                    String nationalName = sc.nextLine();
+
+                    if (nationalDao.insertNational(nationalName)) {
+                        System.out.println("Add National success!");
+                    } else {
+                        System.out.println("Add failed!");
+                    }
+                    break;
+
+                case 7:
+                    System.out.print("Enter NationalId to delete: ");
+                    int nidDelete = sc.nextInt();
+
+                    if (nationalDao.deleteNational(nidDelete)) {
+                        System.out.println("Delete National success!");
+                    } else {
+                        System.out.println("Delete failed!");
                     }
                     break;
 

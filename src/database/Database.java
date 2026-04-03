@@ -11,7 +11,6 @@ public class Database {
     private static final String password = "";
     private static final String driver = "com.mysql.cj.jdbc.Driver";
 
-    // singleton pattern
     private static Database instance;
 
     private Connection conn;

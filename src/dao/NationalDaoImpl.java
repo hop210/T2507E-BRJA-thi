@@ -3,9 +3,7 @@ package dao;
 import database.Database;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
+
 public class NationalDaoImpl implements NationalDao{
     Database db = Database.getInstance();
 
